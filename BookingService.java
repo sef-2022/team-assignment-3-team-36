@@ -13,7 +13,7 @@ class Customer {
 
 
 
-    // customer Contructor to add their name, phone, email, adress after selecting all 
+    // customer Contructor to add their name, phone, email, adress after selecting all that required for the hiring event service
     public void setCustomerInfo(){
         System.out.print("Name:");
         this.customerName = myObj.nextLine();

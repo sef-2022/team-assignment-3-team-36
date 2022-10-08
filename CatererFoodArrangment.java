@@ -5,9 +5,9 @@ abstract class Staff {
     protected double bill = 4000;
     protected double allocatedMoney =7000;
 
-    //
+    //salary for the event management team
     public double getSalary(){
-        return salary;
+        return salary; 
     }
     //printing out dummies values of tracking orders
     public void trackOrder(){
@@ -26,6 +26,7 @@ class Caterer extends Staff {
         salary = allocatedMoney - bill;
         return salary;
     }
+    //first find the EventId that has been booked and then find the menu that they booked
     public void orderFood(){
         int EventID = booking.getEventId();
 
@@ -35,11 +36,13 @@ class Caterer extends Staff {
         System.out.println("Successfully Ordered " + selected[2] + " for Event ID " + EventID );
 
     }
+    //first find the EventId that has ordered food  and then arrange the cultery for the event
     public void culteryArrangement(){
         int EventID = booking.getEventId();
         System.out.println("Successfully arranged the cultery for Event ID" + EventID );
 
     }
+    // first find the EventId that has ordered food and then successfuly pick up the order
     public void pickupFood(){
         int EventID = booking.getEventId();
         System.out.println("Successfully picked up the food for Event ID" + EventID );
