@@ -36,10 +36,10 @@ class System {
     private Menu m = new Menu();
 
 
-    public void bookVenue() {
+    public int bookVenue() {
         int eventId=b.getEventId();
         int seating=v.setSeatingArrangements();
-        return eventId, seating;
+        return eventId;
     }
 
 }
