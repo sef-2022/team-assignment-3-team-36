@@ -1,25 +1,27 @@
 import java.util.Scanner;
 
-
+// Manager class to make request
 class Manager {
-    private System sys;
-    private Booking b;
+    private Controller sys;
+    private BookId b;
     private Menu m;
     Scanner myObj = new Scanner(System.in);
 
 
     public void initiating(){
-        sys = new System();
-        b = new Booking();
+        sys = new Controller();
+        b = new BookId();
         m = new Menu();
 
-        System.out.print("Enter CustomerId: ");
-        int id = myObj.nextLine();
+     // manager Constructor to can access unique customers with ID
+        System.out.print("Enter Customer's Id: "); // Dummy input 
+        int id = myObj.nextInt();
         sys.bookVenue();
 
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) {        // function that runs on manager class
+
         Manager m1 = new Manager();
         m1.initiating();
     }
@@ -27,39 +29,45 @@ class Manager {
 }
 
 
-
-class System {
+// Controller or system class that controls most of the objects
+class Controller {
     private Manager mag = new Manager();
-    private Booking b = new Booking();
+    private double change;
+    private BookId b = new BookId();
     private Venue v = new Venue();
-    private EventPackages ev = new EventPackages();
     private Menu m = new Menu();
+    private Eventpackages ev = new Eventpackages();
+    Scanner myObj = new Scanner(System.in);
+
 
 
     public int bookVenue() {
         int eventId=b.getEventId();
-        int seating=v.setSeatingArrangements();
+        System.out.println("Enter how many seats you would like: "); // dummy input for seating arrangements
+        System.out.println("Would you like to customise the menu: "); // dummy input for customising menu
+        String selectedPackage = myObj.nextLine();
+
         return eventId;
     }
-
 }
-
-class Booking {
-    private System sys;
+// Booking class to retrieve customer ID
+class BookId {
+    private Controller sys;
     
     public int getEventId(){
         return 1;
     }
 
     public void bookVenue() {
-        Booking b = new Booking(); 
+        BookId b = new BookId(); 
         int eventId=b.getEventId();
     }
 
 }
 
+// Venue class used for making seating arrangements
 class Venue {
-    private System sys;
+    private Controller sys;
     
     public int setSeatingArrangements(){
         return 1;
@@ -71,9 +79,9 @@ class Venue {
     }
 
 }
-
+// Menu class used for customising customer menu incase of change (optional)
 class Menu {
-    private System sys;
+    private Controller sys;
     
     public int Menu(){
         return 1;
@@ -83,5 +91,4 @@ class Menu {
         Menu m = new Menu(); 
         int menuPrice=m.Menu();
     }
-
 }
