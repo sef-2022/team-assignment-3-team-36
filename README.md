@@ -11,4 +11,4 @@
 ### Student ID:
 
 
-Controller class will run sequence of methods reported in the sequence diagrams to complete the requirements of the client (event manager, customer, caterer, etc.).
+Main class for instantiating the classes and run the sequence of methods reported in the sequence diagrams to complete the requirements of the client (event manager, customer, caterer, etc.)
