@@ -50,6 +50,11 @@ class Caterer extends Staff {
     public double getAllocatedMoney(){
         return allocatedMoney;
     }
+    //send bills to the finance manager
+    public double sendBill(){
+        double bill = this.allocatedMoney - this.salary
+        return bill;
+    }
 
     public static void main(String[] args) {
         Caterer c = new Caterer();
