@@ -31,7 +31,7 @@ class Caterer extends Staff {
 
         System.out.println("Finding the Menu that Event ID " + EventID + " selected");
         String menus = menu.getMenu();
-        String[] selected = menus.split("\\s+");
+        String[] selected = menus.split(",");
         System.out.println("Successfully Ordered " + selected[2] + " for Event ID " + EventID );
 
     }
