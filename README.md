@@ -6,7 +6,7 @@
 ### Student Name: Myat Theingi Nwe
 ### Student ID: s3963447
 
-# Student 1
+# Student 3
 ### Student Name: Sainandan Nathi
 ### Student ID: s3899885
 
