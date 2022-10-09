@@ -76,23 +76,6 @@ class Booking{
     private OptionalServices optional = new OptionalServices();
     private Customer c1= new Customer();
 
-    public void booking(){
-        //sequences of method that was in the Sequence diagram to finish booking the Services
-        //get Packages
-        System.out.printf("Avaliable Packages: " +packages.getPackageType()+ '\n');
-        packages.selectPackage(); //selecting a package
-        venue.getVenue(); //Show Venues
-        venue.virtualTour(); //Dummy print for Virtual tour
-        venue.selectVenue(); // Selecting a venue
-        venue.getAvailableDate(); // Dummy print for availble Dates
-        venue.setNumberOfGuest(); // Customer give the number of guests coming into the event
-        System.out.printf(menu.getMenu()+ '\n'); //printing ou the menu
-        menu.selectMenu(); //selecting a menu
-        optional.Optional(); //Choosing the optional service on Music band, sound system and flower decoration
-        System.out.printf("Final Bill: " +getBill()+ '\n'); // the total bill
-        c1.setCustomerInfo(); //getting customer info
-        System.out.printf("Event ID generated: " + getEventId()); //the EventID
-    }
 
     //Generate a dummy booking ID 
     public int getBookingId(){
