@@ -44,8 +44,10 @@ class Controller {
     public int bookVenue() {
         int eventId=b.getEventId();
         System.out.println("Enter how many seats you would like: "); // dummy input for seating arrangements
-        System.out.println("Would you like to customise the menu: "); // dummy input for customising menu
-        String selectedPackage = myObj.nextLine();
+        int selectedseats = myObj.nextInt();
+        System.out.println("Customise menue for customer, type 1 for yes or 2 for no: "); // dummy input for customising menu
+        int selectedmenu = myObj.nextInt();
+        System.out.println("Event changes saved and stored! "); // dummy confirmation made from system
 
         return eventId;
     }
