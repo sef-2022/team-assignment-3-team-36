@@ -44,50 +44,24 @@ class Initiater {
 
     public int optionalservices() {
         int eventId=b.getEventId();
-        System.out.println("Would you like to select optional services: "); // dummy input for optional services
+        System.out.println("Would you like to access optional services: "); // dummy input for optional services
         String selectedServices = myObj.nextLine();
+        System.out.println("Hire music band");
+        System.out.println("Enter Yes or No:");
+        int music = myObj.nextInt();
+        System.out.println("Hire sound system");
+        System.out.println("Enter Yes or No:");
+        int sound = myObj.nextInt();
+        System.out.println("Hire flower decoration");
+        System.out.println("Enter Yes or No:");
+        int flower = myObj.nextInt();
+        System.out.println("Optional services has been saved and stored "); // dummy input for optional services
+
+
 
         return eventId;
     }
 
-    public void Optional(){
-        
-        //Reading in Yes or No For optional services
-        //hiring music band or not
-        System.out.println("Hire music band");
-        System.out.println("Enter Yes or No:");
-        String music = myObj.nextLine();
-
-        if (music.equals("Yes")){
-            this.musicBand =true;
-        } else {
-            this.musicBand =false;
-        }
-
-        //hiring sound system or not
-        System.out.println("Hire sound system");
-        System.out.println("Enter Yes or No:");
-        String sound = myObj.nextLine();
-
-        if (sound.equals("Yes")){
-            this.soundSystem =true;
-        } else {
-            this.soundSystem =false;
-        }
-
-        //hiring flower decoration or not
-        System.out.println("Hire flower decoration");
-        System.out.println("Enter Yes or No:");
-        String flower = myObj.nextLine();
-
-        if (flower.equals("Yes")){
-            this.flowerDecoration =true;
-        } else {
-            this.flowerDecoration =false;
-        }
-
-        
-    }
 }
 // Event class to retrieve customer ID
 class Event {
@@ -139,3 +113,4 @@ class OptionalServices {
     
     
 }
+
