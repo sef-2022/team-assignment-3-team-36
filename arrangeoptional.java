@@ -48,13 +48,13 @@ class Initiater {
         String selectedServices = myObj.nextLine();
         System.out.println("Hire music band");
         System.out.println("Enter Yes or No:");
-        int music = myObj.nextInt();
+        String music = myObj.nextLine();
         System.out.println("Hire sound system");
         System.out.println("Enter Yes or No:");
-        int sound = myObj.nextInt();
+        String sound = myObj.nextLine();
         System.out.println("Hire flower decoration");
         System.out.println("Enter Yes or No:");
-        int flower = myObj.nextInt();
+        String flower = myObj.nextLine();
         System.out.println("Optional services has been saved and stored "); // dummy input for optional services
 
 
