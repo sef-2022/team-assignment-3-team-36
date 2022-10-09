@@ -33,6 +33,10 @@ class Client {
 class Initiater {
     private Client c = new Client();
     private double change;
+    private boolean musicBand;
+    private boolean soundSystem;
+    private boolean flowerDecoration;
+    private double price;
     private Event b = new Event();
     private LogisticsManager lg = new LogisticsManager();
     Scanner myObj = new Scanner(System.in);
@@ -45,59 +49,7 @@ class Initiater {
 
         return eventId;
     }
-}
-// Event class to retrieve customer ID
-class Event {
-    private Initiater in;
-    
-    public int getEventId(){
-        return 1;
-    }
 
-    public void optionalservices() {
-        Event b = new Event(); 
-        int eventId=b.getEventId();
-    }
-
-}
-
-// Manager class used for accessing optional services
-class LogisticsManager {
-    private Initiater in;
-    private OptionalServices op = new OptionalServices();
-    
-    public int notifyServices() {
-        int services= op.getMusicBand();
-        op.getSoundSystem();
-        op.getFlowerDecoration();
-        return services;
-    }
-
-    public void optionalservices() {
-        LogisticsManager lg = new LogisticsManager(); 
-        int updateServices=lg.notifyServices();
-    }
-
-}
-// Optional Services class used for selecting extra services
-class OptionalServices {
-    private boolean musicBand;
-    private boolean soundSystem;
-    private boolean flowerDecoration;
-    private double price;
-    Scanner myObj = new Scanner(System.in);
-
-    public int getMusicBand() {
-        return 1;
-    }
-    public int getSoundSystem() {
-        return 1;
-    }
-    public int getFlowerDecoration() {
-        return 1;
-    }
-    
-    // Checking if the customer wanted any optional Serivces 
     public void Optional(){
         
         //Reading in Yes or No For optional services
@@ -136,4 +88,54 @@ class OptionalServices {
 
         
     }
+}
+// Event class to retrieve customer ID
+class Event {
+    private Initiater in;
+    
+    public int getEventId(){
+        return 1;
+    }
+
+    public void optionalservices() {
+        Event b = new Event(); 
+        int eventId=b.getEventId();
+    }
+
+}
+
+// Manager class used for accessing optional services
+class LogisticsManager {
+    private Initiater in;
+    private OptionalServices op = new OptionalServices();
+    
+    public int notifyServices() {
+        int services= op.getMusicBand();
+        op.getSoundSystem();
+        op.getFlowerDecoration();
+        return services;
+    }
+
+    public void optionalservices() {
+        LogisticsManager lg = new LogisticsManager(); 
+        int updateServices=lg.notifyServices();
+    }
+
+}
+// Optional Services class used for selecting extra services
+class OptionalServices {
+    private LogisticsManager lg;
+    Scanner myObj = new Scanner(System.in);
+
+    public int getMusicBand() {
+        return 1;
+    }
+    public int getSoundSystem() {
+        return 1;
+    }
+    public int getFlowerDecoration() {
+        return 1;
+    }
+    
+    
 }
