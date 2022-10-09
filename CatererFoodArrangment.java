@@ -52,7 +52,7 @@ class Caterer extends Staff {
     }
     //send bills to the finance manager
     public double sendBill(){
-        double bill = this.allocatedMoney - this.salary
+        double bill = this.allocatedMoney - this.salary;
         return bill;
     }
 
