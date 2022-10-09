@@ -20,7 +20,7 @@ class Client {
 
     }
 
-    public static void main(String[] args) {        // function that runs on manager class
+    public static void main(String[] args) {        // function that runs on customerr class
 
         Client c1 = new Client();
         c1.commencing();
@@ -29,7 +29,7 @@ class Client {
 }
 
 
-// Controller or system class that controls most of the objects
+// Initiatier or system class that controls most of the objects
 class Initiater {
     private Client c = new Client();
     private double change;
@@ -40,13 +40,13 @@ class Initiater {
 
     public int optionalservices() {
         int eventId=b.getEventId();
-        System.out.println("Would you like to select optional services: "); // dummy input for seating arrangements
+        System.out.println("Would you like to select optional services: "); // dummy input for optional services
         String selectedServices = myObj.nextLine();
 
         return eventId;
     }
 }
-// Booking class to retrieve customer ID
+// Event class to retrieve customer ID
 class Event {
     private Initiater in;
     
@@ -61,7 +61,7 @@ class Event {
 
 }
 
-// Venue class used for making seating arrangements
+// Manager class used for accessing optional services
 class LogisticsManager {
     private Initiater in;
     private OptionalServices op = new OptionalServices();
@@ -79,7 +79,7 @@ class LogisticsManager {
     }
 
 }
-// Menu class used for customising customer menu incase of change (optional)
+// Optional Services class used for selecting extra services
 class OptionalServices {
     private boolean musicBand;
     private boolean soundSystem;
