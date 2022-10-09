@@ -1,27 +1,24 @@
-package a3;
+package customer;
 import java.util.*;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class Customer
 {
-	private Event e;
-	private EventManager em;
-	private FinanceManager fm;
 	private String email = "abc@gmail.com";
 	
 	public int complaining()	// customer complaining
 	{
-		e = new Event();
-		em = new EventManager();
+		Event e = new Event();
+		EventManager em = new EventManager();
 		e.complaint();
 		return e.complaint();
 	}
 	
 	public int query()		// customer query
 	{
-		e = new Event();
-		em = new EventManager();
+		Event e = new Event();
+		EventManager em = new EventManager();
 		e.getEventId();
 		em.manageQuery();
 		return em.manageQuery();
@@ -75,10 +72,10 @@ public class Customer
 
 class Event
 {
-	private EventManager em = new EventManager();
+	private EventManager em1 = new EventManager();
 	public int complaint() 			// complaint for a particular event
 	{
-		int comStatus = em.manageComplaint();	// status of complaint (handled/ not handled)
+		int comStatus = em1.manageComplaint();	// status of complaint (handled/ not handled)
 		return comStatus;
 	}
 	public int getEventId()			// event id
@@ -91,8 +88,8 @@ class Event
 
 class EventManager
 {
-	private Customer c = new Customer();
-	FinanceManager fm = new FinanceManager();
+	private Customer c2 = new Customer();
+
 	
 	public int manageComplaint()		// event manager handles complaint
 	{	return 1;	}
@@ -100,10 +97,10 @@ class EventManager
 	public int manageQuery()		// event manager handles query
 	{	return 1;	}
 	
-	public String askFeedback()		// event manager asks customter for feedback
+	public String askFeedback()		// event manager asks customer for feedback
 	{
-		String email = c.getEmail();	// get customer email first
-		String fb = c.feedback(email);	// ask for customer feedback by sending email
+		String email = c2.getEmail();	// get customer email first
+		String fb = c2.feedback(email);	// ask for customer feedback by sending email
 		return fb;
 	}
 	
@@ -114,24 +111,26 @@ class EventManager
 	}
 	
 	public float getAllocatedMoney()		// get allocated money from finance manager for event
-	{		return fm.emAllocateMoney();	}
+	{	FinanceManager fm = new FinanceManager();	
+		return fm.emAllocateMoney();	}
 	
 	public float getSalary()		// get salary
-	{	return fm.setSalary();	}
-}
+	{	FinanceManager fm = new FinanceManager();
+		return fm.setSalary();	}
 
+}
 class Booking
 {
 	SimpleDateFormat format = new SimpleDateFormat("dd/MM/yyyy");
 	int bid = 12345;
-	long totalBill = 3500;		// final bill paid by customer
-	String bookedDate = "09/09/2022";
-	String todayDate = "10/09/2022";
+	float totalBill = 3500;		// final bill paid by customer
+	String bookedDate = "08/10/2022";
+	String todayDate = "09/10/2022";
 	
 	public int getBookingId()
 	{		return bid;		}
 	
-	public long getBill()
+	public float getBill()
 	{		return totalBill;	}
 	
 	public String bookingDate()
@@ -142,14 +141,14 @@ class Booking
 		try {
 			Date d1 = format.parse(bookedDate);
 			Date d2 = format.parse(todayDate);
-			long dateDifference = (d2.getTime()-d1.getTime())/((1000 * 60 * 60 * 24)) % 365;	// calculate number of days difference	
+			long dateDifference = (d2.getTime()-d1.getTime())/(1000 * 60 * 60 * 24);	// calculate number of days difference	
 			if(dateDifference<=2) {			// if cancelled within 2 days
-				long refund = totalBill*95/100;		// 95% of total amount refunded
-				System.out.print("Refund amount: $");
+				float refund = totalBill*95/100;		// 95% of total amount refunded
+				System.out.print("Booking cancelled! Refund amount: $");
 				System.out.println(refund);
 			}
 			else {							// if cancelled not within 2 days
-				System.out.println("Refund unsuccessful!");		// not refunded and notify unsuccessful
+				System.out.println("Booking cancelled!");		// not refunded and notify unsuccessful
 			}
 		} 
 		catch (ParseException e){
@@ -165,7 +164,6 @@ class FinanceManager
 	Caterer ca = new Caterer();
 	Booking b = new Booking();
 	Customer c = new Customer();
-	FinanceManager fm = new FinanceManager();
 	
 	float emBill = em.sendBill();		// get bill from event manager
 	float lmBill = lm.sendBill();		// get bill from logistics manager
@@ -193,16 +191,16 @@ class FinanceManager
 	{	return caBill;	}
 	
 	public float setSalary()
-	{		return fm.makeCostPlan()/5;	}	//**profit divided into 5 portions	
+	{		return this.makeCostPlan()/5;	}	//**profit divided into 5 portions	
 	
 	public float getSalary()			// get salary
-	{	return fm.setSalary();	}
+	{	return this.setSalary();	}
 	
 }
 
 class LogisticsManager
 {
-	FinanceManager fm = new FinanceManager();
+	
 	public float sendBill()			// send bill to finance manager
 	{
 		float bill = 500;
@@ -210,15 +208,19 @@ class LogisticsManager
 	}
 	
 	public float getAllocatedMoney() 		// get allocated money from finance manager for event
-	{		return fm.lmAllocateMoney();	}
+	{		
+		FinanceManager fm = new FinanceManager();
+		return fm.lmAllocateMoney();	
+	}
 	
 	public float getSalary()			// get salary from finance manager
-	{	return fm.setSalary();	}
+	{	
+		FinanceManager fm = new FinanceManager();
+		return fm.setSalary();	}
 }
 
 class Caterer
 {
-	FinanceManager fm = new FinanceManager();
 	public float sendBill()			// send bill to finance manager
 	{
 		float bill = 708;
@@ -226,8 +228,10 @@ class Caterer
 	}
 	
 	public float getAllocatedMoney()		// get allocated money from finance manager for event
-	{		return fm.caAllocateMoney();	}
+	{	FinanceManager fm = new FinanceManager();
+		return fm.caAllocateMoney();	}
 	
 	public float getSalary()		// get salary from finance manager
-	{	return fm.setSalary();	}
+	{	FinanceManager fm = new FinanceManager();
+		return fm.setSalary();	}
 }
